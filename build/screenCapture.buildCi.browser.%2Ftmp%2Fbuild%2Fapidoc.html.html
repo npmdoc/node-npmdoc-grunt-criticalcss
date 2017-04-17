@@ -1,0 +1,192 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/filamentgroup/grunt-criticalcss">grunt-criticalcss (v2.1.0)</a>
+</h1>
+<h4>Grunt wrapper for criticalcss</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-criticalcss">module grunt-criticalcss</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-criticalcss.grunt-criticalcss">
+            function <span class="apidocSignatureSpan"></span>grunt-criticalcss
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-criticalcss.toString">
+            function <span class="apidocSignatureSpan">grunt-criticalcss.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-criticalcss" id="apidoc.module.grunt-criticalcss">module grunt-criticalcss</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-criticalcss.grunt-criticalcss" id="apidoc.element.grunt-criticalcss.grunt-criticalcss">
+        function <span class="apidocSignatureSpan"></span>grunt-criticalcss
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-criticalcss = function (grunt) {
+	'use strict';
+
+	// Project configuration.
+	grunt.initConfig({
+		jshint: {
+			all: [
+				'Gruntfile.js',
+				'tasks/*.js',
+				'&lt;%= nodeunit.tests %&gt;',
+			],
+			options: {
+				jshintrc: '.jshintrc',
+			},
+		},
+
+		// Before generating any new files, remove any previously-created files.
+		clean: {
+			tests: ['tmp'],
+		},
+
+		// Configuration to be run (and then tested).
+		criticalcss: {
+			test: {
+				options: {
+					url: path.resolve( path.join( __dirname, "test", "fixtures", "test-site.html" ) ),
+					filename: path.resolve( path.join( __dirname, "test", "fixtures", "all.css" ) ),
+					width: 1200,
+					height: 900,
+					outputfile: "tmp/dist.css",
+					buffer: 800*1024,
+					ignoreConsole: false,
+					restoreFontFaces: true
+				}
+			}
+		},
+
+		// Unit tests.
+		nodeunit: {
+			tests: ['test/*_test.js'],
+		}
+	});
+
+	// Actually load this plugin's task(s).
+	grunt.loadTasks('tasks');
+
+	// These plugins provide necessary tasks.
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+
+	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
+	// plugin's task(s), then test the result.
+	grunt.registerTask('test', ['clean', 'criticalcss', 'nodeunit']);
+
+	// By default, lint and run all tests.
+	grunt.registerTask('default', ['jshint', 'test']);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-criticalcss.toString" id="apidoc.element.grunt-criticalcss.toString">
+        function <span class="apidocSignatureSpan">grunt-criticalcss.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			options.rules = JSON.parse( content );
+
+			criticalcss.findCritical( options.url, options, function(err, content){
+				if( err ){
+					throw new Error( err.message );
+				}
+
+				var originalCSS = fs.readFileSync(options.filename).<span class="apidocCodeKeywordSpan">toString</span>();
+				content = criticalcss.restoreOriginalDefs(originalCSS, content);
+
+				// NOTE This should follow the original declarations restoration above
+				// so that if a `font-family` declaration was restored from the original
+				// CSS the corresponding `@font-face` will be included.
+				if( options.restoreFontFaces ){
+					content = criticalcss.restoreFontFaces(originalCSS, content);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
