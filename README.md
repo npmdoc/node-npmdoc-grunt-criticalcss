@@ -1,4 +1,7 @@
-# api documentation for  [grunt-criticalcss (v2.1.0)](https://github.com/filamentgroup/grunt-criticalcss)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-criticalcss.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-criticalcss) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-criticalcss.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-criticalcss)
+# npmdoc-grunt-criticalcss
+
+#### api documentation for  [grunt-criticalcss (v2.1.0)](https://github.com/filamentgroup/grunt-criticalcss)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-criticalcss.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-criticalcss) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-criticalcss.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-criticalcss)
+
 #### Grunt wrapper for criticalcss
 
 [![NPM](https://nodei.co/npm/grunt-criticalcss.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-criticalcss)
@@ -71,7 +74,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "version": "2.1.0"
+    "version": "2.1.0",
+    "bin": {}
 }
 ```
 
